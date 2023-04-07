@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: actual
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`$(ACTUAL_HOSTNAME)`)
+    kind: Rule
+    services:
+    - name: actual
+      port: 5006
+  tls:
+    certResolver: letsencrypt

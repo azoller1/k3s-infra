@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated: {}
+  project: default
+  sources:
+  - chart: traefik
+    repoURL: https://traefik.github.io/charts
+    targetRevision: 22.0.0
+    helm:
+      releaseName: traefik
+      valueFiles:
+      - $values/traefik-ingress-helm/values.yaml
+  - repoURL: https://github.com/azoller1/k3s-infra.git
+    targetRevision: main
+    ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: traefik
