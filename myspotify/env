@@ -1,0 +1,4 @@
+# create configmap
+# kubectl create configmap myspotify-env --from-env-file=./env
+API_ENDPOINT=https://spotifystatsapi.azollerstuff.xyz
+CLIENT_ENDPOINT=https://spotifystats.azollerstuff.xyz

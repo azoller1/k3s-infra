@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myspotify-server
+spec:
+  selector:
+    app: myspotify
+  ports:
+    - name: server
+      protocol: TCP
+      port: 8080
+      targetPort: server

@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myspotify
+  namespace: default
+  labels:
+    app: myspotify
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: myspotify
+  template:
+    metadata:
+      labels:
+        app: myspotify
+    spec:
+      nodeSelector:
+        system: main-server
+      containers:
+      - name: myspotify-client
+      - name: mongo
+        image: mongo:4.4.8
+        volumeMounts:
+        - mountPath: /data/db
+          name: mongo-myspotify
+      - name: myspotify-server
+        image: yooooomi/your_spotify_client:latest
+        envFrom:
+        - configMapRef:
+            name: myspotify-env
+        ports:
+        - containerPort: 3000
+          name: client
+        image: yooooomi/your_spotify_server:latest
+        env:
+        - name: SPOTIFY_PUBLIC
+          valueFrom:
+            secretKeyRef:
+              name: myspotify-env
+              key: spotify_public
+        - name: SPOTIFY_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: myspotify-env
+              key: spotify_secret
+        envFrom:
+        - configMapRef:
+            name: myspotify-env
+        ports:
+        - containerPort: 8080
+          name: server
+      volumes:
+      - name: mongo-myspotify
+        persistentVolumeClaim:
+          claimName: myspotify-data

@@ -1,0 +1,31 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: myspotify-server
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`spotifystatsapi.azollerstuff.xyz`)
+    kind: Rule
+    services:
+    - name: myspotify-server
+      port: 8080
+  tls:
+    certResolver: letsencrypt
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: myspotify-client
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`spotifystats.azollerstuff.xyz`)
+    kind: Rule
+    services:
+    - name: myspotify-client
+      port: 3000
+  tls:
+    certResolver: letsencrypt
