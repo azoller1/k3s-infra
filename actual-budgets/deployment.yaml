@@ -21,7 +21,7 @@ spec:
         system: main-server
       containers:
       - name: actual
-        image: ghcr.io/actualbudget/actual-server:23.3.2
+        image: ghcr.io/actualbudget/actual-server:23.4.0
         volumeMounts:
         - mountPath: /data
           name: data
