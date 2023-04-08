@@ -6,7 +6,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host('budgets.azollerstuff.xyz')
+  - match: Host(`budgets.azollerstuff.xyz`)
     kind: Rule
     services:
     - name: actual
