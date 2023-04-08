@@ -6,7 +6,11 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`$(ACTUAL_HOSTNAME)`)
+  - match:
+    valueFrom:
+     configMapKeyRef:
+       name: traefik-host-domain
+       key: actual
     kind: Rule
     services:
     - name: actual
