@@ -20,13 +20,12 @@ spec:
       nodeSelector:
         system: main-server
       containers:
-      - name: myspotify-client
       - name: mongo
         image: mongo:4.4.8
         volumeMounts:
         - mountPath: /data/db
           name: mongo-myspotify
-      - name: myspotify-server
+      - name: myspotify-client
         image: yooooomi/your_spotify_client:latest
         envFrom:
         - configMapRef:
@@ -34,6 +33,7 @@ spec:
         ports:
         - containerPort: 3000
           name: client
+      - name: myspotify-server
         image: yooooomi/your_spotify_server:latest
         env:
         - name: SPOTIFY_PUBLIC
