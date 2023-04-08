@@ -1,4 +1,15 @@
 apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: headers
+spec:
+  headers:
+    stsSeconds: 63072000
+    stsIncludeSubdomains: true
+    contentTypeNosniff: true
+
+---
+apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: actual
@@ -8,6 +19,8 @@ spec:
   routes:
   - match: Host(`budgets.azollerstuff.xyz`)
     kind: Rule
+    middlewares:
+      - name: headers
     services:
     - name: actual
       port: 5006
