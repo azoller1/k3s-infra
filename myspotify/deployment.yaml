@@ -59,5 +59,6 @@ spec:
           name: server
       volumes:
       - name: mongo-myspotify
-        persistentVolumeClaim:
-          claimName: myspotify-data
+        hostPath:
+        path: /home/alex/dockervols/myspotf
+        type: Directory
