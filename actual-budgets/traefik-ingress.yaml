@@ -13,3 +13,7 @@ spec:
       port: 5006
   tls:
     certResolver: letsencrypt
+    domains:
+    - main: azollerstuff.xyz
+      sans:
+      - '*.azollerstuff.xyz'
