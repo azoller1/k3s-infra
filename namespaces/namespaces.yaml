@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: traefik
+  labels:
+    name: traefik
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: juicefs
+  labels:
+    name: juicefs
+    
