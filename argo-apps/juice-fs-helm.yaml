@@ -10,7 +10,7 @@ spec:
   sources:
   - chart: juicefs-csi-driver
     repoURL: https://juicedata.github.io/charts/
-    targetRevision: 0.19.0
+    targetRevision: 0.15.0
     helm:
       releaseName: juicefs-csi-driver
       valueFiles:
