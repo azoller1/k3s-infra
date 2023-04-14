@@ -5,9 +5,9 @@ metadata:
   name: actual-server-data
   namespace: default
 spec:
-  storageClassName: openebs-hostpath
+  storageClassName: juicefs-sc-actual
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
