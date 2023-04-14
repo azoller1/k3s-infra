@@ -8,3 +8,6 @@ parameters:
   csi.storage.k8s.io/provisioner-secret-namespace: default
   csi.storage.k8s.io/node-publish-secret-name: juicefs-actual
   csi.storage.k8s.io/node-publish-secret-namespace: default
+mountOptions:
+  - cache-dir=/home/alex/disk2/media-other/juicefs-cache
+  - cache-size=204800
