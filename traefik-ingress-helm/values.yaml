@@ -19,7 +19,7 @@ env:
     valueFrom:
       secretKeyRef:
         name: cloudflarekey
-        key: apitoken
+        key: cfk
 deployment:
   initContainers:
     - name: volume-permissions
