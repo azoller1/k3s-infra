@@ -2,20 +2,21 @@
   "kind": "SealedSecret",
   "apiVersion": "bitnami.com/v1alpha1",
   "metadata": {
-    "name": "cloudflare",
+    "name": "cloudflarekey",
     "namespace": "kube-system",
     "creationTimestamp": null
   },
   "spec": {
     "template": {
       "metadata": {
-        "name": "cloudflare",
+        "name": "cloudflarekey",
         "namespace": "kube-system",
         "creationTimestamp": null
-      }
+      },
+      "type": "Opaque"
     },
     "encryptedData": {
-      "apitoken": "AgCq3/dhw/ZChSEdmibc6xUQXa0cF7pL7gFST5sKz5gdUpSwiOLsM59S8OEn6r4m71RzMgPfnL/dfCp0+OXTBlzE95u1b0CBMnASIH3eiilm6tHtko2ewPVUO+rzr0N4d4O7UzEvCF3XDd0euRaMXpxBB2alYFi9vvCF9d79nG+XDwJeSKcHtWZm5yQsW9r9bvcCWNRQNkInZTjnuMy25je6pfWbkadZhMVt0l5DVXJF0DrpOmfWQEwvKUd+7AduqF5Y8XgPL/nfEMvfWA56OosUjmPK1KxVfb+eQdlqiLaxyesFA7ZB+b2fX98AetZ4w2hNddVkLAQuaoXmW3PNsvKCcCz28TiHn0bal6FJWgrN42/KhHh/Y6BICrhpYVNgsfoL1nmkqOjnhM1rFd98vNLPmG/XDWziZb97VussBsLehHxrx3zRrhrSFpAWRNI3S+beAOJNU0p0ouJ07h2v+k8terFVGb3LYB2r5nRkflP2uo8XTi4FRaM2t7r0AKwNVkuqRxYnlYEUZmz4NAPod5Bwop3myAAYuOJMaNUgFB+/NtdfEM4XY6i8o39HzzhwdbUjrd1aYOBCy82CocvP5dUX9qvn4CHlsPmZhmtV2k6OPUJfnqlt4Mv39YcGH5V8pOPFDgQLbHkIcMtid3Q4JPatJk3s0GJKwfCrJtmT56VBr1cHzw3gJVrXUyZb1hMMfbSKCufqNKAY3CmnVPQOfa6puh6zI6njet2ZTt60hL/DUNURMW0nJ5Ki"
+      "cfk": "AgAmZlcpywmUyB4SuUUBI9XH0CZZaIqXU/Afz7pKPCoOvngMYBiXuYYqX/acRIvpnJwkE0fwsIpEaC2v6i1LziKif0c8soYqJlqg54RA6+L18MFZOJmTlbp0Ko4usFjDg8UHQauXolK/ZzaX3jKEIFZza5Z3kPnvCjKapiNnDzAk9rjnrN4dNWhdJZhsEXJoBlUDl9uNwPKvc0StBPeE5P5KZAVLSdUes3AGJiQJRW0U1pm/8X3fuidZktcC1RnsIFyLyrG1CC6XrsrUvQJ21T8DZzhd+NIeDY9HnStfvU8l0d63/p1DHbmDSEaNCI/z9qszduqBBr+DaV36fnleAtqpT71oNh5bzjUsR480+E8ZzS5PHrykCVwkE6pevnOzd5eZA+KsUlzVQxiqZZYnbb1HRoDOnwZHE6VwB0wdV8BtxIxXVRzu7RdMvVTjJPFOQuXF9TdMu2mfN88sgr1IlKucAboxKyr50j+syQjDIPS/kyJ10H4AlGNuFEjwgJF5XFIU/igC1+/xXooWGzcrO8sNd3fCSWFFWb/ed45+mbY2oNeSt6xQJTDTBs85P0hE059h/CTVsRtQawanKbf2DmsnpDTM5Sn3la8lTAI7vj1QOeEtdBAQeiYWxBGxwOhUMC5glAfe1S3oZQQ+IK6My0ISV4ZyKqqDl++XPcskgEWjqjD2kETam4fzcbI1wRLaXc2bxzg3ROnAyCLje6/kmlj7BE4catqZjCd+hoA8g20hv0NGeiscWqzw6Q=="
     }
   }
 }
