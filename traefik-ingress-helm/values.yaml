@@ -18,7 +18,7 @@ env:
   - name: CF_DNS_API_TOKEN
     valueFrom:
       secretKeyRef:
-        name: cloudflare
+        name: sealedsecret.bitnami.com/cloudflare
         key: apitoken
 deployment:
   initContainers:
