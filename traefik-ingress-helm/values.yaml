@@ -1,10 +1,10 @@
 ports:
   websecure:
     http3:
-      enabled: false
+      enabled: true
 persistence:
   enabled: true
-  storageClass: openebs-hostpath
+  storageClass: local-path
 certResolvers:
   letsencrypt:
     email: alex@alexanderme.com
