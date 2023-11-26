@@ -10,14 +10,9 @@ spec:
   sources:
   - chart: juicefs-csi-driver
     repoURL: https://juicedata.github.io/charts/
-    targetRevision: 0.15.0
+    targetRevision: 0.19.2
     helm:
       releaseName: juicefs-csi-driver
-      valueFiles:
-      - $values/juicefs/values.yaml
-  - repoURL: https://github.com/azoller1/k3s-infra.git
-    targetRevision: main
-    ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: juicefs

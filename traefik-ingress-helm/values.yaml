@@ -2,6 +2,31 @@ ports:
   websecure:
     http3:
       enabled: true
+ingressRoute:
+  dashboard:
+    # -- Create an IngressRoute for the dashboard
+    enabled: true
+    matchRule: Host('traefik.azollerstuff.xyz')
+    # -- Specify the allowed entrypoints to use for the dashboard ingress route, (e.g. traefik, web, websecure).
+    # By default, it's using traefik entrypoint, which is not exposed.
+    # /!\ Do not expose your dashboard without any protection over the internet /!\
+    entryPoints: ["websecure"]
+    services:
+    - name: traefikweb
+      port: 9000
+    # -- Additional ingressRoute middlewares (e.g. for authentication)
+    middlewares: ["headers"]
+    tls:
+      certResolver: letsencrypt
+      domains:
+      - main: azollerstuff.xyz
+        sans:
+        - '*.azollerstuff.xyz'
+additionalArguments:
+  - "--providers.consulcatalog=true"
+  - "--providers.consulcatalog.exposedByDefault=false"
+  - "--providers.consulCatalog.endpoint.address=192.168.1.5"
+  - "--providers.consulCatalog.endpoint.scheme=http"
 persistence:
   enabled: true
   storageClass: local-path
