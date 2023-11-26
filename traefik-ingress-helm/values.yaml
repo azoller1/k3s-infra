@@ -6,7 +6,7 @@ ingressRoute:
   dashboard:
     # -- Create an IngressRoute for the dashboard
     enabled: true
-    matchRule: Host('traefik.azollerstuff.xyz')
+    matchRule: Host(`traefik-dash.azollerstuff.xyz`)
     entryPoints: ["websecure"]
     middlewares:
       - name: traefik-dashboard-auth
