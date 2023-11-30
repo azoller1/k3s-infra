@@ -17,11 +17,9 @@ spec:
       labels:
         app: actual
     spec:
-      nodeSelector:
-        system: main-server
       containers:
       - name: actual
-        image: ghcr.io/actualbudget/actual-server:23.4.0
+        image: ghcr.io/actualbudget/actual-server:23.11.0
         volumeMounts:
         - mountPath: /data
           name: data
