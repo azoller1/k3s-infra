@@ -54,8 +54,8 @@ env:
   - name: CF_DNS_API_TOKEN
     valueFrom:
       secretKeyRef:
-        name: cloudflarekey
-        key: cfk
+        name: cfkey
+        key: key
 deployment:
   initContainers:
     - name: volume-permissions
