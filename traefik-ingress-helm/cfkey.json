@@ -2,15 +2,15 @@
   "kind": "SealedSecret",
   "apiVersion": "bitnami.com/v1alpha1",
   "metadata": {
-    "name": "cloudflarekey",
-    "namespace": "kube-system",
+    "name": "cloudflarekeynew",
+    "namespace": "default",
     "creationTimestamp": null
   },
   "spec": {
     "template": {
       "metadata": {
-        "name": "cloudflarekey",
-        "namespace": "kube-system",
+        "name": "cloudflarekeynew",
+        "namespace": "default",
         "creationTimestamp": null
       },
       "type": "Opaque"
