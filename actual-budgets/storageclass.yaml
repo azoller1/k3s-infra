@@ -8,4 +8,4 @@ parameters:
   csi.storage.k8s.io/provisioner-secret-namespace: default
   csi.storage.k8s.io/node-publish-secret-name: juicefs-actual
   csi.storage.k8s.io/node-publish-secret-namespace: default
-  juicefs/mount-cache-pvc: "juicefs-cache"
+#  juicefs/mount-cache-pvc: "juicefs-cache"
