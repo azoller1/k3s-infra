@@ -39,7 +39,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: myspotify-envs
-              key: api-endpoint
+              key: API_ENDPOINT
       - name: myspotify-mongo
         image: mongo:6.0
         volumeMounts:
