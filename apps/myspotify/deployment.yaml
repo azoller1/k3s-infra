@@ -28,7 +28,7 @@ spec:
           value: "America/Chicago"
         envFrom:
         - secretRef:
-          name: myspotify-envs
+            name: myspotify-envs
       - name: myspotify-web
         image: yooooomi/your_spotify_client:latest
         ports:
