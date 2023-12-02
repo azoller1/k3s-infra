@@ -18,7 +18,7 @@ spec:
     volumeHandle: juicefs-myspotify-pv
     fsType: juicefs
     nodePublishSecretRef:
-      name: juicefs-myspotify
+      name: juicefs-myspotify-secret
       namespace: default
 ---
 apiVersion: v1
@@ -26,8 +26,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: juicefs-myspotify-pvc
   namespace: default
-  annotations:
-    argocd.argoproj.io/sync-options: Delete=false
+#  annotations:
+#    argocd.argoproj.io/sync-options: Delete=false
 spec:
   accessModes:
     - ReadWriteMany
