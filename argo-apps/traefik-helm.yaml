@@ -14,7 +14,7 @@ spec:
     helm:
       releaseName: traefik
       valueFiles:
-      - $values/traefik-ingress-helm/values.yaml
+      - $values/apps/traefik-ingress-helm/values.yaml
   - repoURL: https://github.com/azoller1/k3s-infra.git
     targetRevision: main
     ref: values
