@@ -47,9 +47,9 @@ spec:
       - name: mongo
         image: mongo:6.0
         volumeMounts:
-        - mountPath: /data/db
+        - mountPath: /data
           name: mongo-data
-#          mountPropagation: HostToContainer
+          mountPropagation: HostToContainer
         ports:
         - containerPort: 27071
           name: mongo
