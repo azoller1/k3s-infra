@@ -49,7 +49,7 @@ spec:
         volumeMounts:
         - mountPath: /data/db
           name: mongo-data
-          mountPropagation: HostToContainer
+#          mountPropagation: HostToContainer
         ports:
         - containerPort: 27071
           name: mongo

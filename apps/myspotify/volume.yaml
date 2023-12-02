@@ -5,8 +5,8 @@ metadata:
   labels:
     juicefs-name: myspotify-pv
 spec:
-  mountOptions:
-    - subdir=/juicefs-myspotify-mongo
+#  mountOptions:
+#    - subdir=/juicefs-myspotify-mongo
   capacity:
     storage: 1Gi
   volumeMode: Filesystem
