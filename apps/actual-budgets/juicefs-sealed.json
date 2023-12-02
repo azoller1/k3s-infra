@@ -3,7 +3,6 @@
   "apiVersion": "bitnami.com/v1alpha1",
   "metadata": {
     "name": "juicefs-actual",
-    "argocd.argoproj.io/sync-options": "Delete=false",
     "namespace": "default",
     "creationTimestamp": null
   },
