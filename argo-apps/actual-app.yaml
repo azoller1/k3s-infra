@@ -6,6 +6,8 @@ metadata:
 spec:
   syncPolicy:
     automated: {}
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
   destination:
     namespace: default
     server: https://kubernetes.default.svc
