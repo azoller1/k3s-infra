@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: myspotify-mongo-data
+  namespace: default
+spec:
+  storageClassName: juicefs-sc-myspotify
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 50Gi

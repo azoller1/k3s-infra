@@ -1,0 +1,54 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: headers
+spec:
+  headers:
+    stsSeconds: 63072000
+    stsIncludeSubdomains: true
+    contentTypeNosniff: true
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: myspotify-api
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`spotifystatsapi.azollerstuff.xyz`)
+    kind: Rule
+    middlewares:
+      - name: headers
+    services:
+    - name: myspotify-api
+      port: 8080
+  tls:
+    certResolver: letsencrypt
+    domains:
+    - main: azollerstuff.xyz
+      sans:
+      - '*.azollerstuff.xyz'
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: myspotify-web
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`spotifystats.azollerstuff.xyz`)
+    kind: Rule
+    middlewares:
+      - name: headers
+    services:
+    - name: myspotify-web
+      port: 3000
+  tls:
+    certResolver: letsencrypt
+    domains:
+    - main: azollerstuff.xyz
+      sans:
+      - '*.azollerstuff.xyz'
