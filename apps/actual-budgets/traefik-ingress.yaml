@@ -2,6 +2,8 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: headers
+  annotations:
+    argocd.argoproj.io/sync-options: Delete=false
 spec:
   headers:
     stsSeconds: 63072000
