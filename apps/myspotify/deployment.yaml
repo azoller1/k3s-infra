@@ -37,6 +37,8 @@ spec:
         - containerPort: 3000
           name: web
         env:
+        - name: MONGO_ENDPOINT
+          value: "mongodb://localhost:27017/your_spotify"
         - name: API_ENDPOINT
           valueFrom:
             secretKeyRef:
@@ -54,4 +56,4 @@ spec:
       volumes:
       - name: mongo-data
         persistentVolumeClaim:
-          claimName: myspotify-mongo-data
+          claimName: juicefs-myspotify-pvc
