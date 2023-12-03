@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: seaweedfs-csi-driver
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated: {}
+  project: default
+  sources:
+  - chart: seaweedfs-csi-driver
+    repoURL: https://seaweedfs.github.io/seaweedfs-csi-driver/helm
+    targetRevision: 0.1.3
+    helm:
+      releaseName: seaweed-csi-driver
+      valueFiles:
+      - $values/apps/seaweedfs-helm/values.yaml
+  - repoURL: https://github.com/azoller1/k3s-infra.git
+    targetRevision: main
+    ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
