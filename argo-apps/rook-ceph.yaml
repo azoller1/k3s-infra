@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rook-ceph-cluster
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated: {}
+  project: default
+  sources:
+  - chart: rook-ceph-cluster
+    repoURL: https://charts.rook.io/release
+    targetRevision: 1.12.9
+    helm:
+      releaseName: rook-ceph-cluster
+      valueFiles:
+      - $values/apps/rook-ceph/cluster-values.yaml
+  - repoURL: https://github.com/azoller1/k3s-infra.git
+    targetRevision: main
+    ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: rook-ceph
