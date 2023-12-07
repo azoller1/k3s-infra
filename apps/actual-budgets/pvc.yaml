@@ -3,12 +3,15 @@ kind: PersistentVolumeClaim
 metadata:
   name: actual-pvc
   namespace: default
+  labels:
+    app: actual
   annotations:
     argocd.argoproj.io/sync-options: Delete=false
+#    argocd.argoproj.io/sync-wave: "1"
 spec:
-  storageClassName: seaweedfs-storage
+  storageClassName: ceph-block
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 5Gi
