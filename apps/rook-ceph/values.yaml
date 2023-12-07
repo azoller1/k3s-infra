@@ -1,3 +1,6 @@
 image:
   tag: v1.12.9
-enableDiscoveryDaemon: true
+enableDiscoveryDaemon: false
+csi:
+  csiAddons:
+    enabled: true
