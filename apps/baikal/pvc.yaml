@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: baikal1-pvc
+  namespace: default
+  labels:
+    app: actual
+  annotations:
+    argocd.argoproj.io/sync-options: Delete=false
+#    argocd.argoproj.io/sync-wave: "1"
+spec:
+  storageClassName: ceph-block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: baikal2-pvc
+  namespace: default
+  labels:
+    app: actual
+  annotations:
+    argocd.argoproj.io/sync-options: Delete=false
+#    argocd.argoproj.io/sync-wave: "1"
+spec:
+  storageClassName: ceph-block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
