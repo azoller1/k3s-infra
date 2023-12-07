@@ -1,2 +1,3 @@
 image:
   tag: v1.12.9
+enableDiscoveryDaemon: true
