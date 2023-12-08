@@ -3,4 +3,4 @@ image:
 enableDiscoveryDaemon: false
 csi:
   csiAddons:
-    enabled: true
+    enabled: false

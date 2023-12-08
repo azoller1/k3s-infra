@@ -1,0 +1,34 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: headers
+  annotations:
+    argocd.argoproj.io/sync-options: Delete=false
+spec:
+  headers:
+    stsSeconds: 63072000
+    stsIncludeSubdomains: true
+    contentTypeNosniff: true
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: actual
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`budgets.azollerstuff.xyz`)
+    kind: Rule
+    middlewares:
+      - name: headers
+    services:
+    - name: actual
+      port: 5006
+  tls:
+    certResolver: letsencrypt
+    domains:
+    - main: azollerstuff.xyz
+      sans:
+      - '*.azollerstuff.xyz'
