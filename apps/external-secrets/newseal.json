@@ -1,0 +1,21 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "kube-approle-secret",
+    "namespace": "default",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "kube-approle-secret",
+        "namespace": "default",
+        "creationTimestamp": null
+      }
+    },
+    "encryptedData": {
+      "secret-id": "AgCSYVimd1ZOPH69LRfB0IO+LeKCDFpgB5OF4f9SN/fQMHZSdLMCMVIvk0DtuZJO/qgYlnhoIEndWXp5NBzVXH8UEc0l9IK6F9HVk7MVYCoZQrzvBcKuVG1QhEa6qxm2MaehwyD+mN5LLlLfHC482pmdwRzGNWgY3mACXA85Npkx+tm602NyoHQqa0SZUSil9GDHqPqy0YrB2HWmi7lRQe7P+zZ0sBQPaBwWh/T/MQpLdJjoN6A8kxQ5y5KbJnWm1iJYP9TXMtQfYu7P16N7S4ZadIRa5/znd+w83Fh3c7yXAcN5fwh/BFxPIjy9Cppm1yzQqP8PVQuG+xAwJ+BbbwlaD1PbSNb0z1VCxF31CIgRgM8lzY/HdhEGtICtiRrAk4UjLkbGcUMn2IepoezAAwain3G0IBB5F85dSPw5aREeeYeVQCRtCjWazS89txPym2uvnBTXzlP9TUZ4Kq6z6Kjd98B1+ya+mf7dlhGeKIeUiqHgqWPFSMKsscyWtuyft6CPTgQqXHeF5oozjc2XFKpwTVkGIaTQMPsDtuyiFVm3szm3fTBqBIQ6aXnz+RngURCZRVtRqXz7wBdYTFdRAgW+S13cDshI1NUg3Vdy1kRpDvIlMb2z8JynW9OJszpNWA+/vk35usQutsQeK2EH5ICdTwDw07e+HXDZphHCRa4BgpU/XmyFiEinTqjfUVnGRacC2dm18sKoWz8pt3iE46eOmV7qdS0wtnbs2sO3rkIFc/iuqG0="
+    }
+  }
+}
