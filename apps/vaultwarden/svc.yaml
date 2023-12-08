@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: actual
+  name: vaultwarden
 spec:
   selector:
-    app: actual
+    app: vaultwarden
   ports:
     - name: http
       protocol: TCP
-      port: 5006
+      port: 80
       targetPort: http
