@@ -28,12 +28,20 @@ spec:
         volumeMounts:
         - mountPath: /opt/couchdb/etc/local.d
           name: config
+        - mountPath: /opt/couchdb/etc/local.d
+          name: config2
         - mountPath: /opt/couchdb/data
           name: data
         ports:
         - containerPort: 5984
           name: db
       volumes:
+      - name: config2
+        configMap:
+          name: couchdb-config2
+          items:
+          - key: config
+            path: docker.ini
       - name: config
         configMap:
           name: couchdb-config
