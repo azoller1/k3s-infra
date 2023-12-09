@@ -11,7 +11,7 @@ spec:
     middlewares:
       - name: headers
     services:
-    - name: http
+    - name: gotify
       port: 80
   tls:
     certResolver: letsencrypt
