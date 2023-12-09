@@ -1,0 +1,21 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: gotify
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`gotify.azollerstuff.xyz`)
+    kind: Rule
+    middlewares:
+      - name: headers
+    services:
+    - name: http
+      port: 80
+  tls:
+    certResolver: letsencrypt
+    domains:
+    - main: azollerstuff.xyz
+      sans:
+      - '*.azollerstuff.xyz'

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: gotify-pvc
+  namespace: default
+  labels:
+    app: gotify
+  annotations:
+    argocd.argoproj.io/sync-options: Delete=false
+#    argocd.argoproj.io/sync-wave: "1"
+spec:
+  storageClassName: ceph-block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
