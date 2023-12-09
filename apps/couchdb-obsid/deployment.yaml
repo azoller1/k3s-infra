@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: couchdb-obsid
+  namespace: default
+  labels:
+    app: couchdb-obsid
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: couchdb-obsid
+  template:
+    metadata:
+      labels:
+        app: couchdb-obsid
+    spec:
+      containers:
+      - name: couchdb-obsid
+        image: couchdb:3
+        envFrom:
+        - configMapRef:
+            name: couchdb-obsid-env
+        - secretRef:
+            name: couchdb-obsid-secrets
+        volumeMounts:
+        - mountPath: /opt/couchdb/etc/local.d
+          name: config
+        - mountPath: /opt/couchdb/data
+          name: data
+        ports:
+        - containerPort: 5984
+          name: db
+      volumes:
+      - name: config
+        configMap:
+          name: couchdb-config
+          items:
+          - key: config
+            path: 10-custom.ini
+      - name: data
+        persistentVolumeClaim:
+          claimName: couchdb-obsid-pvc

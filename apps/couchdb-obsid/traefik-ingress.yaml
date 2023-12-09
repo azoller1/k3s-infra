@@ -1,0 +1,21 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: couchdb-obsid
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`obsidiandb.azollerstuff.xyz`)
+    kind: Rule
+    middlewares:
+      - name: headers
+    services:
+    - name: couchdb-obsid
+      port: 5984
+  tls:
+    certResolver: letsencrypt
+    domains:
+    - main: azollerstuff.xyz
+      sans:
+      - '*.azollerstuff.xyz'
