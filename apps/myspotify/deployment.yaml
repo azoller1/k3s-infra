@@ -6,7 +6,7 @@ metadata:
   labels:
     app: myspotify
 spec:
-  replicas: 2
+  replicas: 1
   strategy:
     type: Recreate
   selector:
@@ -30,7 +30,7 @@ spec:
           value: "mongodb://localhost:27017/your_spotify"
         envFrom:
         - secretRef:
-            name: myspotify-envs
+            name: myspotify-secrets
       - name: myspotify-web
         image: yooooomi/your_spotify_client:latest
         ports:
@@ -42,18 +42,17 @@ spec:
         - name: API_ENDPOINT
           valueFrom:
             secretKeyRef:
-              name: myspotify-envs
+              name: myspotify-secrets
               key: API_ENDPOINT
       - name: mongo
         image: mongo:6.0
         volumeMounts:
         - mountPath: /data/db
           name: mongo-data
-          mountPropagation: HostToContainer
         ports:
         - containerPort: 27071
           name: mongo
       volumes:
       - name: mongo-data
         persistentVolumeClaim:
-          claimName: juicefs-myspotify-pvc
+          claimName: myspotify-pvc
