@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: couchdb-config
 data:
+  config2: ""
   config: |
     [couchdb]
     single_node=true
