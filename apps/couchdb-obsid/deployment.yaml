@@ -28,6 +28,7 @@ spec:
         volumeMounts:
         - mountPath: /opt/couchdb/etc/local.d
           name: config
+          subPath: 10-custom.ini
         - mountPath: /opt/couchdb/data
           name: data
         ports:
@@ -38,10 +39,8 @@ spec:
         configMap:
           name: couchdb-config
           items:
-          - key: config
+          - key: 10-custom.ini
             path: 10-custom.ini
-          - key: config2
-            path: docker.ini
       - name: data
         persistentVolumeClaim:
           claimName: couchdb-obsid-pvc

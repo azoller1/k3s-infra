@@ -3,11 +3,13 @@ kind: ConfigMap
 metadata:
   name: couchdb-config
 data:
-  config2: ""
-  config: |
+  10-custom.ini: |
     [couchdb]
     single_node=true
     max_document_size = 50000000
+
+    [cluster]
+    n = 1
 
     [chttpd]
     require_valid_user = true
